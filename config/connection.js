@@ -1,6 +1,6 @@
-var mysql = require("mysql");
+const mysql = require('mysql');
 
-var connection = mysql.createConnection({
+const connection = mysql.createConnection({
 	host: "localhost",
 	user: "",
 	password: "",
@@ -15,4 +15,6 @@ connection.connect((err) => {
   console.log("connected as id " + connection.threadId);
 });
 
+
+// Exports to orm.js
 module.exports = connection;
