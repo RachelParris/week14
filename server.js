@@ -1,13 +1,10 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const methodOverride = require("method-override");
 const handleBars = require('express-handlebars');
 const app = express();
 
 app.use(express.static(`${__dirname}/public`));
 app.use(bodyParser.urlencoded({ extended: false }))
-// override with POST having ?_method=DELETE
-app.use(methodOverride('_method'))
 
 app.engine('handlebars', handleBars({defaultLayout: 'main'}));
 app.set('view engine', 'handlebars');
