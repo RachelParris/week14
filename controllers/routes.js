@@ -13,5 +13,15 @@ router.get('/', (request, response) => {
   });
 })
 
+router.put("/burger/:id", (request, response) => {
+  const condition = "id= " + req.params.id;
+  burger.updateOne(req.body.burger, condition, () => response.redirect("/"));
+});
+
+router.post("/burger/create", (request, response) => {
+  burger.insertOne(req.body.burger, value, () => response.redirect("/"));
+});
+
+
 // Export routes for server.js to use.
 module.exports = router;
